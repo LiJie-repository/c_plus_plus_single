@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch", // 启动配置的名称
+            "type": "cppdbg", // 调试器类型
+            "request": "launch", // 请求类型，这里是启动
+            "program": "C:\\Windows\\System32\\cmd.exe", // 要执行的程序路径
+            "args": [
+                "/C",
+                "build\\${fileBasenameNoExtension}.exe",
+                "&",
+                "echo.",
+                "&",
+                "pause"
+            ], // 命令行参数
+            "stopAtEntry": false, // 程序入口处是否停止
+            "cwd": "${workspaceFolder}", // 工作目录
+            "environment": [],
+            "externalConsole": true, // 是否使用外部控制台
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\MinGW64\\bin\\gdb.exe", // GDB调试器的路径
+            "preLaunchTask": "g++", // 启动前执行的任务
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb", // 描述
+                    "text": "-enable-pretty-printing", // 命令
+                    "ignoreFailures": true // 忽略失败
+                }
+            ]
+        }
+    ]
+}
